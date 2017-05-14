@@ -1,0 +1,36 @@
+NLP-driven Data Journalism: Time-Aware Mining and Visualisation of International Alliances.
+
+1. Show the time series of alliance and opposition of relations between countries on specific topics. Subject topics like the North pole ownership.
+2. Link between topic detection and opinion mining (sentiment) and relation extraction. Novelty in the relation extraction is the time dimension.
+3. The relations they look at are positive and negative relations explicitly stated in the same sentence.
+
+Method
+1. Use Nouns to find the entities and Verb to find the sentiment and then link to countries via the name of the country, capital or represented person.
+2. Use Chunking, coreference and NER (stanford), date normalisation, person/country mapping and a SVM for alliance/opposition (sentiment) prediction. POS and NEG relations are aggregated for the day.
+3. The classification is suppose to be more precisise than recall due to the redundancy in the amount of data.
+    1. Training set - sentences contains at least two entities separated by less than 15 chunks and at least one relation word. They than annotated these sentences in total 2105 relations with only 293 POS, 349 NEG and the rest NIL.
+    2. Implemented a two stage SVM one to define if there is a relation or not and the other to define if it is POS or NEG. 0.76 F-score. They used different features for the different classifiers. The polarity classifier mainly based on the POS NEG word list.
+
+Data
+1. English newswire provided by the French AFP 1.79 million text over 2004-2013
+2. Entities linked data repo of CIA world Factbook and variations of the names from DBPedia.
+3. Constructed a manually word list of alliance and opposition words.
+4. Date normalisation using Heideltime. 
+5. Extracted NP’s and VP’s chunks using Stanford.
+
+They created a visual graph showing all of this information.
+
+They evaluated manually by looking at 15 case studies to see if the peaks in agreement or disagreement where valid by looking at news articles around the time they were querying.
+
+Future work
+1. Reduce the demand needed for supervised data.
+
+
+
+Relation extraction - identify the relation between two entities in the same sentence.
+
+
+Related work
+Identify-ing Political Sentiment between Nation States with Social Media
+
+

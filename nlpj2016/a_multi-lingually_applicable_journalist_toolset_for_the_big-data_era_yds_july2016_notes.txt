@@ -1,0 +1,28 @@
+A multi-lingually applicable journalist toolset for the big-data era.
+
+
+1. They have a toolkit to gather social media and web pages. 
+2. Event summarisation
+    1. They then have a module that supports summarisation the first step is clustering based on meta data e.g. All coming from the same news category this meta data can come from the source itself or during setup of the tool. The next stage is clustering based on named entities and morphological characteristics within the text and some heuristic rules. These cluster are then denoted as events.
+    2. From the events sub topics can be found within each document based on sentence level analysis. Sentences are 3 char gram with a neighbour of 3 from documents with the event cluster. Sentences are then put into a similarity matrix based on Normalised Value Similarity then Markov clustering is performed on this matrix. Then for each sub topic they remove sentences that are redundant and keep sentences that are most represented. They do this by finding sentences that are most similar to the sub topic cluster and from those sentences remove sentences that are too similar to each other. This method performed well in the multilingual multi document summarisation task (MultiLing). 
+3. Trend detection
+    1. Groups the events into stories to show how the events happened over time.
+    2. The significants of an event is associated with the number of news sources writing about the event in the time period the event exists. 
+    3. They also look at instant topic trends by taking the two most recent events and showing the significant of the event. 
+    4. This allows journalists to look at trending topics now and overall trending topics from the past day or two.
+4. Automatic classification 
+    1. Find IPTC (International Press Telecommunications Council) codes for each news article based on a binary classifier for each topic (logistic regression) they used stemming and TF-IDF as features. Support Greek and English.
+5. Slugline generation.
+    1. Uses NER for story writing and editing. Used OpenNLP and name/surnames and organisation gazetteers. The slug line contains the NER found and work is on going to find key words to add.
+
+Evaluation was based on a user study. Looked at the usefulness of summarisation as well as the quality. Based on scale of 1-5 for usefulness.
+
+The tool in action:
+http://www.newsumontheweb.org/
+
+What they have learnt:
+1. Event clustering in different news area is based on different things e.g. car industry is the named entity of cars brands and others it is more topic terms. Being precise is more important than recall.
+Future work
+1. Suggestion on writing style.
+
+

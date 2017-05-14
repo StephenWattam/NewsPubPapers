@@ -1,0 +1,16 @@
+Labeled Topics for News Corpora Using Word Embeddings and Keyword Identification
+
+1. Using word embeddings and keyword extraction can create better temporal topics that are more coherent and informative than LDA and are also labelled.
+
+They show how combining two NLP techniques can create labelled topics.
+
+1. Find periods in the corpus
+2. Pre process the text and find NER’s
+3. Find NER’s that are statistically significant across the periods using frequency counts of the NERS in the periods
+4. Run Word2Vec over the corpus
+5. Using the Statistically significant NER’s as labels for topics find the most similar words using the Word2Vec model based on the NER word.
+
+Looked at Donald Trump using Fox and National Public Radio using transcripts. The periods were monthly. 
+
+They find that some of the NER labels are not informative enough and find that some topics needed combining.
+
